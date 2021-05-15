@@ -19,6 +19,10 @@ body {
   background-image: url(./assets/hot-day.jpg);
 }
 
+.app.cold {
+  background-image: url(./assets/cold.jpg);
+}
+
 main {
   min-height: 100vh;
   background-image: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.75));
@@ -48,7 +52,7 @@ main {
   font-size: 20px;
   color: #313131;
 
-  transition: 0.4 ease;
+  transition: 0.4s ease-out;
 }
 
 .search-box .search-bar:focus {
@@ -61,6 +65,8 @@ main {
   font-size: 35px;
   text-shadow: 3px 3px rgb(50, 50, 70, 0.5);
   font-weight: 500;
+
+  transition: 0.4s ease-out;
 }
 
 .location-box .date {
@@ -70,6 +76,8 @@ main {
   text-shadow: 2px 2px rgba(50, 50, 70, 0.5);
   font-weight: 300;
   font-style: italic;
+
+  transition: 0.4s ease-out;
 }
 
 .weather-box {
@@ -91,6 +99,7 @@ main {
   text-align: center;
   text-shadow: 3px 6px rgba(50, 50, 70, 0.5);
   box-shadow: 3px 6px rgba(0,0,0,0.2);
+  transition: 0.4s ease-out;
 }
 
 .weather-box .weather {
@@ -98,4 +107,6 @@ main {
   font-size: 50px;
   font-weight: 700;
   text-shadow: 2px 2px rgba(0,0,0,0.2);
+  text-transform: capitalize;
+  transition: 0.4s ease-out;
 }
