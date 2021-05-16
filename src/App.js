@@ -7,8 +7,9 @@ const api = {
 }
 
 function App() {
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState('Search Weather');
   const [weather, setWeather] = useState({});
+  const [weatherError, setWeatherError] = useState('Search Weather...');
 
   const search = searchEvent => {
     if (searchEvent.key === "Enter") {
@@ -20,10 +21,16 @@ function App() {
       })
       .then(res => res.json())
       .then(result => {
-        setWeather(result);
-        setQuery('');
-        console.log(result);
-      });
+        if (result.cod === 200) {
+          setWeather(result);
+          setQuery('');
+          console.log(result);
+        }
+      })
+      .catch(res => {
+          console.log(res);
+          setWeatherError('Error in searching location...');
+      })
     }
   }
 
@@ -40,7 +47,7 @@ function App() {
           type="text"
           placeholder="Search Location..."
           onChange={e => setQuery(e.target.value)}
-          value={query}
+          
           onKeyPress={search}
         />
         </div>
@@ -55,7 +62,7 @@ function App() {
               <div className="weather">{weather.weather[0].description}</div>
             </div>
           </div>
-        ) : ('Location not found')}
+        ) : (weatherError)}
         
       </main>
     </div>
