@@ -7,12 +7,14 @@ const api = {
 }
 
 function App() {
-  const [query, setQuery] = useState('Search Weather');
+  const [query, setQuery] = useState('');
   const [weather, setWeather] = useState({});
   const [weatherError, setWeatherError] = useState('Search Weather...');
 
   const search = searchEvent => {
     if (searchEvent.key === "Enter") {
+      setWeather({});
+      setWeatherError('');
       fetch((`${api.base}weather?q=${query}&units=metric&appid=${api.key}`), 
       { 
         headers : { 
@@ -24,13 +26,12 @@ function App() {
         if (result.cod === 200) {
           setWeather(result);
           setQuery('');
+          setWeatherError('');
           console.log(result);
         }
       })
-      .catch(res => {
-          console.log(res);
-          setWeatherError('Error in searching location...');
-      })
+      .catch(setWeatherError('Location not found...'));
+            
     }
   }
 
@@ -48,7 +49,7 @@ function App() {
           type="text"
           placeholder="Search Location..."
           onChange={e => setQuery(e.target.value)}
-          
+          value={query}
           onKeyPress={search}
         />
         </div>
