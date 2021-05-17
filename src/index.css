@@ -116,3 +116,26 @@ main {
   text-transform: capitalize;
   transition: 0.4s ease-out;
 }
+
+.weather-box .icon {
+  position: relative;
+  display: inline-block;
+  border-radius: 16px;
+  background-color:aquamarine;
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.75));;
+  margin: 30px auto;
+  padding: 10px 20px;
+
+  box-shadow: 3px 6px rgba(0,0,0,0.2);
+  transition: 0.4s ease-out;
+}
+
+.default-msg {
+  color: azure;
+  text-align: center;
+  font-size: 35px;
+  text-shadow: 3px 3px rgb(50, 50, 70, 0.5);
+  font-weight: 500;
+
+  transition: 0.4s ease-out;
+}

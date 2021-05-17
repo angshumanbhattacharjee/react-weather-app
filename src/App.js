@@ -37,6 +37,7 @@ function App() {
   const dateBuilder = new Date().toDateString();
   
   const backgroundImg = (typeof weather.main != "undefined") ? (weather.main.temp > 20 ? 'app warm' : 'app cold') : ('app');
+  const weathericon = (typeof weather.main != "undefined") ? (`http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`) : ('');
 
   return (
     <div className={backgroundImg}>
@@ -60,9 +61,10 @@ function App() {
             <div className="weather-box">
               <div className="temp"> {Math.round(weather.main.temp)}°C</div>
               <div className="weather">{weather.weather[0].description}</div>
+              <div className="icon"><img src={weathericon} alt="weather icon" /></div>
             </div>
           </div>
-        ) : (weatherError)}
+        ) : (<div className="default-msg"> {weatherError}</div>)}
         
       </main>
     </div>
