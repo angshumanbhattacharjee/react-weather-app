@@ -25,13 +25,13 @@ function App() {
       .then(result => {
         if (result.cod === 200) {
           setWeather(result);
-          setQuery('');
+          //setQuery('');
           setWeatherError('');
           console.log(result);
         }
       })
-      .catch(setWeatherError('Location not found...'));
-            
+      .catch(setWeatherError('Location not found...'))
+      .finally(setQuery('')); 
     }
   }
 

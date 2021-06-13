@@ -10,21 +10,23 @@ body {
 
 .app {
   background-image: url(./assets/light-house.jpg);
-  background-size: cover;
+  background-size: 1368px 800px;
   background-position: bottom;
   transition: 0.4s ease-in-out;
 }
 
 .app.warm {
   background-image: url(./assets/hot-day.jpg);
-  background-size: cover;
+  background-size: 1368px 800px;
+  background-size: contain;
   background-position: bottom;
   transition: 0.4s ease-in-out;
 }
 
 .app.cold {
   background-image: url(./assets/cold.jpg);
-  background-size: cover;
+  background-size: 1368px 800px;
+  background-size: contain;
   background-position: bottom;
   transition: 0.4s ease-in-out;
 }
@@ -133,7 +135,7 @@ main {
 .default-msg {
   color: azure;
   text-align: center;
-  font-size: 35px;
+  font-size: 50px;
   text-shadow: 3px 3px rgb(50, 50, 70, 0.5);
   font-weight: 500;
 
